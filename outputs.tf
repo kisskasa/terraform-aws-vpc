@@ -21,3 +21,11 @@ output "database_subnet_ids" {
 output "database_subnet_group_ids" {
     value = aws_db_subnet_group.default.id
 }
+
+output "database_subnet_group_name" {
+    value = aws_db_subnet_group.default.name
+}
+
+output "igw_id" {
+    value = aws_internet_gateway.gw
+}
