@@ -1,14 +1,14 @@
 #### Project ####
-variable "project_name" {
+variable "project_name"{
     type = string
 }
 
-variable "environment" {
+variable "environment"{
     type = string
     default = "dev"
 }
 
-variable "common_tags" {
+variable "common_tags"{
     type = map
 }
 
@@ -29,17 +29,17 @@ variable "vpc_tags" {
 }
 
 #### IGW ####
-variable "igw_tags" {
+variable "igw_tags"{
     type = map
     default = {}
 }
 
-#### Public Subnet ####
-variable "public_subnet_cidr" {
+### Public Subnet ####
+variable "public_subnet_cidrs" {
     type = list
     validation {
-      condition = length(var.public_subnet_cidr) == 2
-      error_message = "Please provide 2 valid public subnet CIDR"
+        condition = length(var.public_subnet_cidrs) == 2
+        error_message = "Please provide 2 valid public subnet CIDR"
     }
 }
 
@@ -48,12 +48,13 @@ variable "public_subnet_cidr_tags" {
     default = {}
 }
 
-#### Private Subnet ####
-variable "private_subnet_cidr" {
+
+### Private Subnet ####
+variable "private_subnet_cidrs" {
     type = list
     validation {
-      condition = length(var.private_subnet_cidr) == 2
-      error_message = "Please provide 2 valid private subnet CIDR"
+        condition = length(var.private_subnet_cidrs) == 2
+        error_message = "Please provide 2 valid private subnet CIDR"
     }
 }
 
@@ -62,12 +63,13 @@ variable "private_subnet_cidr_tags" {
     default = {}
 }
 
-#### database Subnet ####
-variable "database_subnet_cidr" {
+
+### Database Subnet ####
+variable "database_subnet_cidrs" {
     type = list
     validation {
-      condition = length(var.database_subnet_cidr) == 2
-      error_message = "Please provide 2 valid database subnet CIDR"
+        condition = length(var.database_subnet_cidrs) == 2
+        error_message = "Please provide 2 valid database subnet CIDR"
     }
 }
 
@@ -81,42 +83,42 @@ variable "database_subnet_group_tags" {
     default = {}
 }
 
-#### Nat gateway  ####
+#### Nat gateway ####
 variable "nat_gateway_tags" {
     type = map
     default = {}
 }
 
-#### Public Route Table   ####
+#### Public Route table ####
 variable "public_route_table_tags" {
     type = map
     default = {}
 }
 
-#### Private Route Table   ####
+#### Private Route table ####
 variable "private_route_table_tags" {
     type = map
     default = {}
 }
 
-#### database Route Table   ####
+#### Database Route table ####
 variable "database_route_table_tags" {
     type = map
     default = {}
 }
 
-#### Peering ###
+#### Peering ####
 variable "is_peering_required" {
-    type = bool
-    default = false
+  type = bool
+  default = false
 }
 
 variable "acceptor_vpc_id" {
-    type = string
-    default = ""
+  type = string
+  default = ""
 }
 
 variable "vpc_peering_tags" {
-    type = map
-    default = {}
+  type = map
+  default = {}
 }
